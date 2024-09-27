@@ -1,11 +1,11 @@
 import requests
 from twilio.rest import Client
-STOCK = "TSLA"
-COMPANY_NAME = "Tesla Inc"
+STOCK = "STOCK_NAME"
+COMPANY_NAME = "COMPANY_NAME"
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
-STOCK_API_KEY="JRHJS4OXPIN47BWP"
-NEWS_API_KEY="97c0717b81ca49f48868ca0a88891dcf"
+STOCK_API_KEY="API_KEY"
+NEWS_API_KEY="API_KEY"
 
 news_params={
     'apikey': NEWS_API_KEY,
@@ -33,12 +33,12 @@ if percentage>4:
     formatted_article=[f"Headlines:{article['title']}. \nBrief:{article['description']}" for article in three_articles]
 
 
-    account_sid = 'AC72496d0c0dd0e7cba918dc70a572053f'
-    auth_token = '5a31def6c358aee222b45c90133f06f7'
+    account_sid = 'ACCOUNT_SID'
+    auth_token = 'AUTH_TOKEN'
     client = Client(account_sid, auth_token)
     for article in formatted_article:
         message = client.messages.create(
-            from_='whatsapp:+14155238886',
+            from_='whatsapp:TWILLIO_NO.',
             body=article,
-            to='whatsapp:+918124174607' )
+            to='whatsapp:RECEIVER_NO.' )
         print(message.status)
